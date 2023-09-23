@@ -1,5 +1,3 @@
-hello
-['/Users/sam.learner/ft/misc/fed-dot-plot-scraper/src/scrape.py', '--expand']
 date,midpoint,2018,2019,2020,2021,2022,2023,2024,2025,2026,longer_run
 2018-03-21,1.500,,,,,,,,,,
 2018-03-21,1.625,2,1,1,,,,,,,

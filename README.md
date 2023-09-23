@@ -25,14 +25,14 @@ Install the dependencies.
 pipenv install --dev
 ```
 
-Run the scraper.
+Run the scraper (and output the original wide format)
 
 ```bash
 pipenv run python -m src.scrape
 ```
 
-That will output a CSV to the shell. You can write it to a file like this:
+You can write it the long-formatted/expanded beeswarm format like this
 
 ```bash
-pipenv run python -m src.scrape > output.csv
+pipenv run python -m src.scrape --expand
 ```

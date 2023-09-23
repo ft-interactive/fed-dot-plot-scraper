@@ -153,4 +153,18 @@ if __name__ == "__main__":
     df = scrape()
 
     # Print the dataframe to stdout as a CSV
-    df.to_csv(sys.stdout, index=False)
+    # df.to_csv(sys.stdout, index=False)
+    df.to_csv("./output/wide_data.csv", index=False)
+
+    # format/output expanded
+    if "--expand" in sys.argv:
+        long_df = utils.format_wide_to_long(df)
+        long_df.to_csv("./output/long_data.csv", index=True)
+
+        expanded_df = utils.expand_df(long_df)
+        expanded_df.to_csv("./output/expanded_data.csv", index=True)
+
+        beeswarm_formatted_df = utils.format_for_beeswarm(expanded_df)
+        beeswarm_formatted_df.to_csv(
+            "./output/beeswarm_formatted_data.csv", index=False
+        )
