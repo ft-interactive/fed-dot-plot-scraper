@@ -110,10 +110,12 @@ def format_for_beeswarm(
     dated_projections.sort_values(
         by=["meeting_date", "year", "midpoint"],
         inplace=True,
-        ascending=[False, True, True],
+        ascending=[False, True, False],
     )
     long_run_projections.sort_values(
-        by=["meeting_date", "year", "midpoint"], inplace=True
+        by=["meeting_date", "year", "midpoint"],
+        inplace=True,
+        ascending=[True, True, False],
     )
 
     # Then re-concatenate them together
@@ -133,5 +135,9 @@ def format_for_beeswarm(
 
     # Rename "longer_run" to "Longer run"
     formatted_df.loc[formatted_df["year"] == "longer_run", "year"] = "Longer run"
+
+    # Re-order columns
+    formatted_df = formatted_df[["midpoint", "meeting_date", "year"]]
+    formatted_df.columns = ["Federal funds rate projection (%)", "FOMC meeting", "Year"]
 
     return formatted_df
