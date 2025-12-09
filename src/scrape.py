@@ -5,6 +5,7 @@ When run from the command line this script will scrape the projections and print
 Example usage:
     $ python src/scrape.py > data/output.csv
 """
+
 from __future__ import annotations
 
 import sys
@@ -64,6 +65,7 @@ def _get_source_urls() -> pd.DataFrame:
            url                                            date
         0  https://www.federalreserve.gov/monetarypoli... 2012-01-25
     """
+
     # Get the root url, which lists all the FOMC meetings.
     root_url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
     html = utils.get_url(root_url)
